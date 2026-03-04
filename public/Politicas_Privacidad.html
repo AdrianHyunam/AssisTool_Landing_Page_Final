@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Políticas de Privacidad - AssisTool</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+			body{font-family: Inter, system-ui, Arial, sans-serif; margin:0;}
+			.wrap{max-width:900px;margin:48px auto;padding:24px}
+			h1{font-size:24px;text-align:center}
+		</style>
+	</head>
+	<body class="bg-neutral-700">
+		<style>
+		/* bubble animation rules */
+		.bubble-layer {
+		  position: fixed;
+		  inset: 0;
+		  background-image:
+		    radial-gradient(circle, rgba(255,255,255,0.14) 6px, transparent 7px),
+		    radial-gradient(circle, rgba(255,255,255,0.1) 4px, transparent 5px),
+		    radial-gradient(circle, rgba(255,255,255,0.06) 2.5px, transparent 3px);
+		  background-repeat: repeat, repeat, repeat;
+		  background-size: 120px 480px, 80px 360px, 40px 240px;
+		  background-position: 0 100%, 20px 120%, 40px 150%;
+		  pointer-events: none;
+		  mix-blend-mode: screen;
+		  animation: bubbleRiseA 18s linear infinite, bubbleRiseB 12s linear infinite, bubbleRiseC 8s linear infinite;
+		}
+		@keyframes bubbleRiseA {
+		  from { background-position: 0 100%, 20px 120%, 40px 150%; }
+		  to   { background-position: 0 -100%, 20px -80%, 40px -50%; }
+		}
+		@keyframes bubbleRiseB {
+		  from { background-position: 0 100%; }
+		  to   { background-position: 0 -100%; }
+		}
+		@keyframes bubbleRiseC {
+		  from { background-position: 0 100%; }
+		  to   { background-position: 0 -100%; }
+		}
+		</style>
+		<div class="bubble-layer"></div>
+		<div id="navbar-container"></div>
+		<script>
+			fetch('/navbar.html')
+				.then(r => r.text())
+				.then(html => {
+					document.getElementById('navbar-container').innerHTML = html;
+					const s = document.createElement('script');
+					s.src = '/navbar.js';
+					document.body.appendChild(s);
+				});
+		</script>
+
+            <!-- make wrapper transparent to reveal bubble background everywhere -->
+    <!-- <div class="wrap"> -->
+ <main class="container mx-auto px-8 py-8 max-w-4xl">
+    <div class="bg-gray-400 rounded-2xl shadow-lg p-2 md:p-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Políticas de Privacidad</h1>
+        <p class="text-sm text-gray-500 mb-8">Última actualización: 03 Marzo 2026</p>
+        <div class="prose prose-gray max-w-none">
+            <section class="space-y-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Identidad y Domicilio del Responsable</h2>
+                    <p class="text-gray-700 leading-relaxed">En cumplimiento con la Ley Federal de Protección de 
+                        Datos Personales en Posesión de los Particulares, se informa que ITERATION SERVICIOS SOLUCIONES,  
+                        con domicilio en con domicilio en CALLE NARCISO MENDOZA 33, TECAMACHALCO C.P. 56500, LOS REYES
+                        ACAQUILPAN, LA PAZ, Estado de México (en adelante "AssisTool", "nosotros" o "la Empresa").</p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">2.  Datos Personales que se Recaban</h2>
+                    <p class="text-gray-700 leading-relaxed">Para el correcto funcionamiento del Sistema, se podrán recabar los siguientes datos:</p>
+                    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
+                        <li>Datos de identificación: Nombre completo, Número de empleado, Puesto y área, Correo electrónico corporativo</li>
+                        <li>Datos laborales:Horario de entrada y salida, Registro de incidencias (retardos, faltas, guardias), Reportes de soporte fuera de horario</li>
+                        <li>Datos tecnológicos:Dirección IP,Dispositivo utilizado,Ubicación geográfica (en modalidad remota),</li>
+                        <li>Datos biométricos (si aplica):Huella digital,Reconocimiento facial</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">3. Finalidades del Tratamiento</h2>
+                     <p class="text-gray-700 leading-relaxed"><strong>Los datos personales serán utilizados para:</strong> No se utilizarán los datos para fines distintos a los aquí establecidos sin consentimiento previo.
+                    </p>
+                    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
+                        <li>Control de asistencia y puntualidad</li>
+                        <li>Cumplimiento de obligaciones laborales conforme a la Ley Federal del Trabajo</li>
+                        <li>Administración de esquemas de trabajo presencial, remoto o híbrido</li>
+                        <li>Auditorías internas y controles de seguridad informática</li>
+                        <li>Generación de reportes administrativos y de nómina</li>
+                    </ul>
+
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Transferencia de Datos</h2>
+                    <p class="text-gray-700 leading-relaxed">Los datos personales podrán ser transferidos sin requerir consentimiento cuando:</p>
+                    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
+                        <li><strong>Sea necesario para cumplir obligaciones legales</strong></li>
+                        <li><strong>Sean requeridos por autoridad competente</strong></li>
+                        <li>Se compartan con proveedores que operen el Sistema bajo contrato de confidencialidad</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">5. Medidas de Seguridad</h2>
+                    <p class="text-gray-700 leading-relaxed">La empresa implementa medidas administrativas, técnicas y físicas para proteger los datos personales, incluyendo:</p>
+                    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
+                        <li>Control de acceso restringido</li>
+                        <li>Cifrado de información</li>
+                        <li>Bitácoras de auditoría</li>
+                        <li>Respaldo periódico de información</li>
+                        <li>Políticas internas de seguridad informática administradas por el área de TI</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">6. Conservación de Datos</h2>
+                    <p class="text-gray-700 leading-relaxed">Los datos personales serán conservados 
+                        únicamente durante el tiempo necesario para cumplir con las finalidades descritas 
+                        y conforme a los plazos legales aplicables en materia laboral y fiscal.
+                    </p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">7. Revocación del Consentimiento</h2>
+                    <p class="text-gray-700 leading-relaxed">El titular podrá revocar su consentimiento 
+                        en cualquier momento, siempre que no exista obligación legal que impida su eliminación.
+                    </p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">8. Cambios a la Política de Privacidad</h2>
+                    <p class="text-gray-700 leading-relaxed">La empresa se reserva el derecho de modificar esta 
+                        Política de Privacidad en cualquier momento. Las modificaciones serán publicadas en los 
+                        medios internos oficiales.</p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">9.  Autoridad Competente</h2>
+                    <p class="text-gray-700 leading-relaxed">En caso de considerar vulnerado su derecho a la protección 
+                        de datos personales, el titular podrá acudir ante el Instituto Nacional de Transparencia, Acceso a 
+                        la Información y Protección de Datos Personales (INAI).</p>
+                </div>
+
+                <div class="bg-purple-50 border-l-4 border-gray-600 p-6 rounded-r-lg mt-8">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">📧 Contacto</h3>
+                    <p class="text-gray-700">Para preguntas sobre estos términos, contáctenos
+                        en:<br><strong>Email:</strong> legal@iteration.mx<br><strong>Razón Social:</strong> ITERATION
+                        SERVICIOS Y SOLUCIONES<br><strong>Dirección:</strong> Calle Narciso Mendoza 33, Tecamachalco
+                        C.P. 56500, Los Reyes Acaquilpan, La Paz, Estado de México</p>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="mt-8 bg-gradient-to-r from-gray-600 to-gray-600 text-white rounded-2xl shadow-lg p-6 text-center">
+        <p class="text-sm md:text-base font-medium">⚖️ Al usar este servicio, aceptas y entiendes las politicas de
+            nuestro servicio.</p>
+    </div>
+    <div class="mt-8 flex flex-wrap justify-center gap-4 text-sm"><a
+            class="text-gray-600 hover:text-gray-700 font-medium" href="/legal/terms">Terminos y Condiciones</a><span class="text-gray-300">
+                <!-- •</span><a class="text-gray-600 hover:text-gray-700 font-medium" href="/legal/privacy">Aviso de Privacidad</a><span
+            class="text-gray-300">•</span><a class="text-gray-600 hover:text-gray-700 font-medium"
+            href="/legal/refunds">Política de Reembolsos</a> -->
+    </div>
+</main>
+    <!-- </div> -->
+	</body>
+</html>

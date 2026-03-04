@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Planes - AssisTool</title>
+		<!-- tailwind utility classes via CDN for consistent styling -->
+		<script src="https://cdn.tailwindcss.com"></script>
+		<style>
+			:root{
+				--bg:#fbf7ff;
+				--card:#ffffff;
+				--muted:#d6dce7;
+				--accent:#101011; /* purple */
+				--accent-2:#3213e1;
+			}
+			*{box-sizing:border-box}
+			body{font-family: Inter, system-ui, Arial, sans-serif; margin:0; background:var(--bg); color:#0f1724}
+			.wrap{max-width:1200px;margin:48px auto;padding:24px}
+			.heading{text-align:center;margin-bottom:28px}
+			.heading h1{font-size:28px;margin:0}
+			.grid{display:grid;grid-template-columns:1fr;gap:20px}
+			@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+			.card{background:var(--card);border-radius:16px;padding:28px;box-shadow:0 6px 30px rgba(15,23,42,0.08);border:1px solid rgba(15,23,42,0.04);display:flex;flex-direction:column;align-items:center}
+			.badge{display:inline-block;padding:6px 14px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;font-size:13px;position:relative;top:-24px}
+			.title{font-size:22px;font-weight:700;margin-top:6px}
+			.subtitle{color:var(--muted);margin-top:6px}
+			.price{font-size:48px;font-weight:800;margin:18px 0}
+			.currency{color:var(--muted);font-size:14px}
+
+			.features{width:100%;margin-top:12px}
+			.feature{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px dashed rgba(15,23,42,0.03)}
+			.feature:first-child{border-top:0}
+			.check{width:15px;height:15px;border-radius:2px;background:#0d0e0d;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700}
+
+			/* highlighted middle card */
+			.popular{border:3px solid var(--accent);transform:translateY(-6px);box-shadow:0 12px 40px rgba(124,58,237,0.12)}
+
+			.cta{margin-top:20px;width:100%}
+			.btn{display:inline-block;padding:12px 18px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+			.btn-primary{background:var(--accent);color:#fff;width:100%}
+			.btn-outline{background:transparent;border:2px solid #e6e6fa;color:var(--muted);width:100%}
+
+			.note{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+
+			/* small tweak for center badge position */
+			.popular-badge{position:relative;margin-top:-34px}
+
+		</style>
+	</head>
+	<body class="bg-gray-700">
+		<!-- parallax bubble background layer -->
+		<style>
+		/* bubble animation from index.css */
+		.bubble-layer {
+		  position: absolute;
+		  inset: 0;
+		  background-image:
+		    radial-gradient(circle, rgba(255,255,255,0.14) 6px, transparent 7px),
+		    radial-gradient(circle, rgba(255,255,255,0.1) 4px, transparent 5px),
+		    radial-gradient(circle, rgba(255,255,255,0.06) 2.5px, transparent 3px);
+		  background-repeat: repeat, repeat, repeat;
+		  background-size: 120px 480px, 80px 360px, 40px 240px;
+		  background-position: 0 100%, 20px 120%, 40px 150%;
+		  pointer-events: none;
+		  mix-blend-mode: screen;
+		  animation: bubbleRiseA 18s linear infinite, bubbleRiseB 12s linear infinite, bubbleRiseC 8s linear infinite;
+		}
+		@keyframes bubbleRiseA {
+		  from { background-position: 0 100%, 20px 120%, 40px 150%; }
+		  to   { background-position: 0 -100%, 20px -80%, 40px -50%; }
+		}
+		@keyframes bubbleRiseB {
+		  from { background-position: 0 100%; }
+		  to   { background-position: 0 -100%; }
+		}
+		@keyframes bubbleRiseC {
+		  from { background-position: 0 100%; }
+		  to   { background-position: 0 -100%; }
+		}
+		</style>
+		<div class="bubble-layer"></div>
+		<!-- shared navigation will be injected here -->
+		<div id="navbar-container"></div>
+		<script>
+			fetch('/navbar.html')
+				.then(r => r.text())
+				.then(html => {
+					document.getElementById('navbar-container').innerHTML = html;
+					// load script after injection to activate toggle
+					const s = document.createElement('script');
+					s.src = '/navbar.js';
+					document.body.appendChild(s);
+				});
+		</script>
+		<div class="wrap">
+			<div class="heading">
+				<h1>Planes y Precios</h1>
+				<p class="note">Elige el plan que mejor se adapte a tus necesidades</p>
+			</div>
+
+			<div class="grid">
+				<!-- Base -->
+				<div class="card bg-gray-400 rounded-3xl p-6 sm:p-8 hover:shadow-2xl hover:border-cyan-200 transition-all group animate-reveal">
+					<div class="title">Plan Base</div>
+					<div class="subtitle">"Esencial"</div>
+					<div class="price">$15</div>
+					<div class="currency">USD / mes</div>
+
+					<div class="features">
+						<div class="feature"><div class="check">✓</div><div>Ideal para micronegocios o locales pequeños</div></div>
+						<div class="feature"><div class="check">✓</div><div>Hasta 5 o 10 empleados</div></div>
+						<div class="feature"><div class="check">✓</div><div>Registro de entrada/salida</div></div>
+						<div class="feature"><div class="check">✓</div><div>Foto, ubicación GPS  y reporte básico en Excel</div></div>
+					</div>
+
+					<div class="cta"><button class="btn btn-outline">Elegir Base</button></div>
+				</div>
+
+				<!-- Pro (popular) -->
+				<div class="card popular bg-gray-400">
+					<!-- <div class="popular-badge"><span class="badge">⭐ Más Popular</span></div> -->
+					<div class="title">Plan Pro</div>
+					<div class="subtitle">"Gestion Total"</div>
+					<div class="price">$3</div>
+					<div class="currency">por user/USD / mes</div>
+
+					<div class="features">
+						<div class="feature"><div class="check">✓</div><div>Para empresas en crecimiento que necesitan control de incidencias</div></div>
+						<!-- <div class="feature"><div class="check">✓</div><div></div></div> -->
+						<div class="feature"><div class="check">✓</div><div>Todo incluido + Gestión de Comida, Permisos (faltas solicitadas)</div></div>
+						<div class="feature"><div class="check">✓</div><div>Alertas de Faltas Injustificadas</div></div>
+						<div class="feature"><div class="check">✓</div><div>Dashboard de administrador con estadísticas de puntualidad y exportación avanzada para nómina</div></div>
+					</div>
+
+					<div class="cta"><button class="btn btn-primary">Elegir Pro</button></div>
+				</div>
+
+				<!-- Enterprise -->
+				<div class="card bg-gray-400">
+					<div class="title">Plan Enterprise</div>
+					<div class="subtitle">"Corporativo"</div>
+					<div class="price">$0</div>
+					<div class="currency">USD / mes</div>
+
+					<div class="features">
+						<div class="feature"><div class="check">✓</div><div>Para empresas con múltiples sucursales o alta rotación</div></div>
+						<div class="feature"><div class="check">✓</div><div>+50 empleados (Precio negociado o volumen)</div></div>
+						<div class="feature"><div class="check">✓</div><div>Todo incluido + Soporte prioritario, API para conectar con su software de nómina actual</div></div>
+						<div class="feature"><div class="check">✓</div><div>Almacenamiento extendido de fotos/evidencias (Aqui debemos trabajar en estas cosas)</div></div>
+					</div>
+
+					<div class="cta"><button class="btn btn-outline">Elegir Enterprise</button></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

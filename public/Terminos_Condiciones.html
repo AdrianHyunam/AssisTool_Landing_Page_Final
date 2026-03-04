@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Términos y Condiciones - AssisTool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: Inter, system-ui, Arial, sans-serif;
+            margin: 0;
+        }
+
+        .wrap {
+            max-width: 900px;
+            margin: 48px auto;
+            padding: 24px
+        }
+
+        h1 {
+            font-size: 24px;
+            text-align: center
+        }
+    </style>
+</head>
+
+<body class="bg-neutral-700">
+    <style>
+        /* bubble animation rules */
+        /* fixed position ensures layer stays full-height during scrolling */
+        html, body { min-height: 100vh; }
+        .bubble-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1; /* sit behind all content */
+            background-image:
+                radial-gradient(circle, rgba(255, 255, 255, 0.14) 6px, transparent 7px),
+                radial-gradient(circle, rgba(255, 255, 255, 0.1) 4px, transparent 5px),
+                radial-gradient(circle, rgba(255, 255, 255, 0.06) 2.5px, transparent 3px);
+            background-repeat: repeat, repeat, repeat;
+            background-size: 120px 480px, 80px 360px, 40px 240px;
+            background-position: 0 100%, 20px 120%, 40px 150%;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            animation: bubbleRiseA 18s linear infinite, bubbleRiseB 12s linear infinite, bubbleRiseC 8s linear infinite;
+        }
+
+        @keyframes bubbleRiseA {
+            from {
+                background-position: 0 100%, 20px 120%, 40px 150%;
+            }
+
+            to {
+                background-position: 0 -100%, 20px -80%, 40px -50%;
+            }
+        }
+
+        @keyframes bubbleRiseB {
+            from {
+                background-position: 0 100%;
+            }
+
+            to {
+                background-position: 0 -100%;
+            }
+        }
+
+        @keyframes bubbleRiseC {
+            from {
+                background-position: 0 100%;
+            }
+
+            to {
+                background-position: 0 -100%;
+            }
+        }
+    </style>
+    <div class="bubble-layer"></div>
+    <div id="navbar-container"></div>
+    <script>
+        fetch('/navbar.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('navbar-container').innerHTML = html;
+                const s = document.createElement('script');
+                s.src = '/navbar.js';
+                document.body.appendChild(s);
+            });
+    </script>
+
+    <!-- make wrapper transparent to reveal bubble background everywhere -->
+    <!-- <div class="wrap"> -->
+ <main class="container mx-auto px-8 py-8 max-w-4xl">
+    <div class="bg-gray-400 rounded-2xl shadow-lg p-2 md:p-12">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Términos y Condiciones</h1>
+        <p class="text-sm text-gray-500 mb-8">Última actualización: 03 Marzo 2026</p>
+        <div class="prose prose-gray max-w-none">
+            <section class="space-y-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">1. Aceptación de Términos</h2>
+                    <p class="text-gray-700 leading-relaxed">Al acceder y utilizar Sistema de Registro de Asistencia AssisTool (en adelante "el
+                        Servicio"), usted acepta estar sujeto a estos Términos y Condiciones. Si no está de acuerdo con
+                        alguna parte de estos términos, no podrá acceder al Servicio.</p>
+                    <p class="text-gray-700 leading-relaxed mt-3">AssisTool es operado por ITERATION SERVICIOS Y
+                        SOLUCIONES, con domicilio en CALLE NARCISO MENDOZA 33, TECAMACHALCO C.P. 56500, LOS REYES
+                        ACAQUILPAN, LA PAZ, Estado de México (en adelante "AssisTool", "nosotros" o "la Empresa").
+                    </p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">2.  Marco Legal Aplicable</h2>
+                    <p class="text-gray-700 leading-relaxed">El presente Sistema opera conforme a:</p>
+                    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
+                        <li>Ley Federal del Trabajo</li>
+                        <li>Ley Federal de Protección de Datos Personales en Posesión de los Particulares</li>
+                        <li>Reglamento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares</li>
+                        <li>Demás disposiciones aplicables en materia laboral y de protección de datos en México</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">3. Registro y Cuenta de Usuario</h2>
+                    <p class="text-gray-700 leading-relaxed">Para utilizar el Servicio, debe crear una cuenta
+                        proporcionando información precisa, completa y actualizada. Usted es responsable de:</p>
+                    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
+                        <li>Mantener la confidencialidad de su contraseña y credenciales</li>
+                        <li>Todas las actividades que ocurran bajo su cuenta</li>
+                        <li>Notificar inmediatamente cualquier uso no autorizado de su cuenta</li>
+                        <li>Proporcionar información veraz y no crear cuentas falsas</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">4. Planes de Servicio y Pagos</h2>
+                    <p class="text-gray-700 leading-relaxed">AssisTool ofrece diferentes planes de servicio con
+                        características y límites específicos. Los precios están expresados en dólares (USD) e
+                        incluyen IVA salvo que se indique lo contrario.</p>
+                    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
+                        <li><strong>Plan Base: "Esencial"</strong></li>
+                        <li><strong>Plan Pro: "Gestión Total"</strong></li>
+                        <li><strong>Plan Enterprise: "Corporativo"</strong></li>
+                        <li>Los pagos se procesan a través de procesadores de pago terceros (Stripe, Mercado Pago)</li>
+                        <li>Todas las transacciones generarán CFDI (factura electrónica) válido en México</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">5. Uso Aceptable</h2>
+                    <p class="text-gray-700 leading-relaxed">Usted se compromete a NO utilizar el Servicio para:</p>
+                    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
+                        <li>Actividades ilegales o fraudulentas</li>
+                        <li>Distribuir contenido ofensivo, difamatorio, obsceno o que viole derechos de terceros</li>
+                        <li>Transmitir virus, malware o cualquier código malicioso</li>
+                        <li>Intentar acceder sin autorización a sistemas o datos</li>
+                        <li>Realizar ingeniería inversa o copiar el software</li>
+                        <li>Revender o redistribuir el Servicio sin autorización</li>
+                        <li>Enviar spam o comunicaciones no solicitadas</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">6. Propiedad Intelectual</h2>
+                    <p class="text-gray-700 leading-relaxed"><strong>Contenido de AssisTool:</strong> Todos los
+                        elementos del Servicio (diseño, código, marca, logotipos, gráficos) son propiedad exclusiva de
+                        Iteration y están protegidos por leyes de propiedad intelectual nacionales e internacionales.
+                    </p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">7. Uso Prohibido</h2>
+                    <p class="text-gray-700 leading-relaxed">Queda estrictamente prohibido:
+                    </p>
+                    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
+                        <li>Registrar asistencia en nombre de otro colaborador</li>
+                        <li>Manipular registros</li>
+                        <li>Alterar configuraciones sin autorización</li>
+                        <li>Explotar vulnerabilidades del Sistema</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">8. Disponibilidad del Servicio</h2>
+                    <p class="text-gray-700 leading-relaxed">El Sistema podrá:</p>
+                    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
+                        <li>Ser suspendido temporalmente por mantenimiento</li>
+                        <li>Actualizarse sin previo aviso</li>
+                        <li>Integrarse con otros sistemas corporativos</li>
+                    </ul>
+                    <p class="text-gray-700 leading-relaxed mt-3"><strong>La empresa no será responsable por fallas derivadas de causas ajenas a su control, tales como interrupciones de internet o fallas eléctricas.</strong></p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">9. Modificaciones</h2>
+                    <p class="text-gray-700 leading-relaxed">Nos reservamos el derecho de modificar estos Términos en
+                        cualquier momento. Los cambios significativos serán notificados por email con 15 días de
+                        anticipación. El uso continuado del Servicio después de cambios constituye aceptación de los
+                        nuevos términos.</p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">10. Ley Aplicable y Jurisdicción</h2>
+                    <p class="text-gray-700 leading-relaxed">Estos términos se rigen por las leyes de los Estados Unidos
+                        Mexicanos. Cualquier controversia será sometida a la jurisdicción exclusiva de los tribunales
+                        competentes de la Ciudad de México, renunciando a cualquier otra jurisdicción que pudiera
+                        corresponder por razón de domicilio presente o futuro.</p>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">14. Disposiciones Generales</h2>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+                        <li><strong>Divisibilidad:</strong> Si alguna disposición es inválida, las demás permanecerán en
+                            pleno vigor</li>
+                        <li><strong>Renuncia:</strong> La no aplicación de algún derecho no constituye renuncia al mismo
+                        </li>
+                        <li><strong>Cesión:</strong> No puede ceder sus derechos sin nuestro consentimiento por escrito
+                        </li>
+                        <li><strong>Acuerdo Completo:</strong> Estos términos constituyen el acuerdo completo entre las
+                            partes</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-50 border-l-4 border-gray-600 p-6 rounded-r-lg mt-8">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">📧 Contacto</h3>
+                    <p class="text-gray-700">Para preguntas sobre estos términos, contáctenos
+                        en:<br><strong>Email:</strong> legal@iteration.mx<br><strong>Razón Social:</strong> ITERATION
+                        SERVICIOS Y SOLUCIONES<br><strong>Dirección:</strong> Calle Narciso Mendoza 33, Tecamachalco
+                        C.P. 56500, Los Reyes Acaquilpan, La Paz, Estado de México</p>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="mt-8 bg-gradient-to-r from-gray-600 to-gray-600 text-white rounded-2xl shadow-lg p-6 text-center">
+        <p class="text-sm md:text-base font-medium">⚖️ Al usar este servicio, aceptas y entiendes los términos de
+            nuestro servicio.</p>
+    </div>
+    <div class="mt-8 flex flex-wrap justify-center gap-4 text-sm"><a
+            class="text-gray-600 hover:text-gray-700 font-medium" href="/legal/terms">Politicas de Privacidad</a><span class="text-gray-300">
+                <!-- •</span><a class="text-gray-600 hover:text-gray-700 font-medium" href="/legal/privacy">Aviso de Privacidad</a><span
+            class="text-gray-300">•</span><a class="text-gray-600 hover:text-gray-700 font-medium"
+            href="/legal/refunds">Política de Reembolsos</a> -->
+    </div>
+</main>
+    <!-- </div> -->
+</body>
+
+</html>
