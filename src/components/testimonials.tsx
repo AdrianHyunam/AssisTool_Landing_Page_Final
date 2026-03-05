@@ -51,7 +51,7 @@ export const Testimonials = () => {
             style={{ transform: `translateX(-${index * 100}%)` }}
           >
             {testimonials.map((testimonial: Testimonial) => (
-              <div key={testimonial.name} className="w-full flex-shrink-0 px-4">
+              <div key={testimonial.name} className="w-full shrink-0">
                 <TestimonialCard {...testimonial} />
               </div>
             ))}

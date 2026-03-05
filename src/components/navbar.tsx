@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "./button";
 import { Menu, X } from "lucide-react";
 
@@ -8,53 +8,81 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-    // point to the static page in `public/price.html`
     { name: "Precios", href: "/price.html" },
-    // { name: "Iniciar Sesión", href: "#" },
 ];
 
 export const Navbar = () => {
     const [open, setOpen] = useState(false);
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 768) {
+                setOpen(false);
+            }
+        };
+
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
     return (
-        <nav className="relative">
-            {/* desktop links */}
-            <ul className="hidden md:flex justify-between gap-8 p-4 rounded-full">
-                {navItems.map((item) => (
-                    <li key={item.name}>
+        <nav className="bg-gray-200 border-b border-gray-300 sticky top-0 z-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+                <a href="/">
+                    <img
+                        className="w-32 bg-white font-bold rounded-full p-2"
+                        src="/images/assisTool.png"
+                        alt="Logo"
+                    />
+                </a>
+                <ul className="hidden md:flex items-center gap-8">
+                    {navItems.map((item) => (
+                        <li key={item.name}>
+                            <a
+                                className="hover:font-bold text-gray-700"
+                                href={item.href}
+                            >
+                                {item.name}
+                            </a>
+                        </li>
+                    ))}
+                    <li>
                         <a
-                            className="flex flex-col hover:font-bold mt-3"
-                            href={item.href}
+                            href="#"
+                            className="px-6 py-2.5 bg-gray-500 text-white rounded-full hover:bg-gray-900 transition-all cursor-pointer"
                         >
-                            {item.name}
+                            Iniciar Sesión
                         </a>
                     </li>
-                ))}
-
-                <li className="flex">
-                    <Button text="Iniciar Sesión" style="w-[160px]" />
-                </li>
-            </ul>
-
-            {/* hamburger button visible only on mobile */}
-            <div className="md:hidden p-4 flex justify-end">
+                </ul>
                 <button
                     onClick={() => setOpen((o) => !o)}
-                    className="p-2 text-slate-600 hover:text-blue-600 transition-colors"
+                    className="md:hidden p-2 text-gray-600 hover:text-blue-600 transition-colors"
                 >
                     {open ? <X /> : <Menu />}
                 </button>
             </div>
 
-            {/* mobile menu rendered only on small screens */}
+            {open && (
+                <div
+                    className="fixed inset-0 bg-black/50 z-20"
+                    onClick={() => setOpen(false)}
+                />
+            )}
             <div
-                className={`md:hidden absolute top-full left-0 w-full bg-gray-500 shadow-md transition-transform duration-200 ${open ? 'translate-y-0' : '-translate-y-4 opacity-0 pointer-events-none'} `}
+                className={`fixed top-0 right-0 h-full w-64 bg-gray-500 z-30 p-6 transform transition-transform duration-200 ${open ? 'translate-x-0' : 'translate-x-full'}`}
             >
-                <ul className="flex flex-col p-4 space-y-4">
+                <button
+                    className="mb-8 text-gray-600"
+                    onClick={() => setOpen(false)}
+                >
+                    <X />
+                </button>
+                <ul className="flex flex-col space-y-6">
                     {navItems.map((item) => (
                         <li key={item.name}>
                             <a
-                                className="block hover:font-bold"
+                                className="text-white text-lg hover:font-bold"
                                 href={item.href}
                                 onClick={() => setOpen(false)}
                             >
@@ -63,7 +91,7 @@ export const Navbar = () => {
                         </li>
                     ))}
                     <li>
-                        <Button text="Iniciar Sesión" style="w-full" />
+                       <Button text="Iniciar Sesión" style="w-full px-4 py-2 bg-gray-500 text-white rounded-full text-center hover:bg-gray-900 transition-all cursor-pointer"/>
                     </li>
                 </ul>
             </div>

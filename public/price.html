@@ -10,7 +10,7 @@
 			:root{
 				--bg:#fbf7ff;
 				--card:#ffffff;
-				--muted:#d6dce7;
+				--muted:#353637;
 				--accent:#101011; /* purple */
 				--accent-2:#3213e1;
 			}
@@ -23,14 +23,14 @@
 			@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
 
 			.card{background:var(--card);border-radius:16px;padding:28px;box-shadow:0 6px 30px rgba(15,23,42,0.08);border:1px solid rgba(15,23,42,0.04);display:flex;flex-direction:column;align-items:center}
-			.badge{display:inline-block;padding:6px 14px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;font-weight:700;font-size:13px;position:relative;top:-24px}
+			.badge{display:inline-block;padding:6px 14px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#0f1724;font-weight:700;font-size:13px;position:relative;top:-24px}
 			.title{font-size:22px;font-weight:700;margin-top:6px}
 			.subtitle{color:var(--muted);margin-top:6px}
 			.price{font-size:48px;font-weight:800;margin:18px 0}
-			.currency{color:var(--muted);font-size:14px}
+			.currency{color:var(--muted);font-size:14px;} 
 
 			.features{width:100%;margin-top:12px}
-			.feature{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px dashed rgba(15,23,42,0.03)}
+			.feature{display:flex;gap:12px;align-items:center;padding:15px 0;border-top:1px dashed rgba(15,23,42,0.03)}
 			.feature:first-child{border-top:0}
 			.check{width:15px;height:15px;border-radius:2px;background:#0d0e0d;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700}
 
@@ -94,19 +94,20 @@
 					document.body.appendChild(s);
 				});
 		</script>
+
 		<div class="wrap">
-			<div class="heading">
+			<div class="mx-auto heading font-Open-Sans text-center items-center bg-white rounded-full p-2 shadow-lg w-45">
 				<h1>Planes y Precios</h1>
-				<p class="note">Elige el plan que mejor se adapte a tus necesidades</p>
+				<p class="note text-gray-500">Elige el plan que mejor se adapte a tus necesidades</p>
 			</div>
 
 			<div class="grid">
 				<!-- Base -->
-				<div class="card bg-gray-400 rounded-3xl p-6 sm:p-8 hover:shadow-2xl hover:border-cyan-200 transition-all group animate-reveal">
+				<div class="card bg-gray-400 relativ rounded-2xl shadow-xl p-8 transition-all duration-300 hover:shadow-2xl hover:scale-105">
 					<div class="title">Plan Base</div>
-					<div class="subtitle">"Esencial"</div>
+					<div class="subtitle font-bold">"Esencial"</div>
 					<div class="price">$15</div>
-					<div class="currency">USD / mes</div>
+					<div class="currency font-bold">USD / mes</div>
 
 					<div class="features">
 						<div class="feature"><div class="check">✓</div><div>Ideal para micronegocios o locales pequeños</div></div>
@@ -114,17 +115,19 @@
 						<div class="feature"><div class="check">✓</div><div>Registro de entrada/salida</div></div>
 						<div class="feature"><div class="check">✓</div><div>Foto, ubicación GPS  y reporte básico en Excel</div></div>
 					</div>
-
-					<div class="cta"><button class="btn btn-outline">Elegir Base</button></div>
+					<div class="cta">
+					<a class="btn btn-outline block w-full text-center py-4 rounded-xl font-bold transition-all transform hover:scale-105 bg-gray-100 text-gray-900 hover:bg-gray-200" href="/">Elegir Base</a>
+					<!-- <div class="cta"><button class="btn btn-outline">Elegir Base</button></div> -->
+				</div>
 				</div>
 
 				<!-- Pro (popular) -->
-				<div class="card popular bg-gray-400">
+				<div class="card popular bg-gray-400 relativ rounded-2xl shadow-xl p-8 transition-all duration-300 hover:shadow-2xl hover:scale-105">
 					<!-- <div class="popular-badge"><span class="badge">⭐ Más Popular</span></div> -->
 					<div class="title">Plan Pro</div>
-					<div class="subtitle">"Gestion Total"</div>
+					<div class="subtitle font-bold">"Gestion Total"</div>
 					<div class="price">$3</div>
-					<div class="currency">por user/USD / mes</div>
+					<div class="currency font-bold">por user/USD / mes</div>
 
 					<div class="features">
 						<div class="feature"><div class="check">✓</div><div>Para empresas en crecimiento que necesitan control de incidencias</div></div>
@@ -133,25 +136,28 @@
 						<div class="feature"><div class="check">✓</div><div>Alertas de Faltas Injustificadas</div></div>
 						<div class="feature"><div class="check">✓</div><div>Dashboard de administrador con estadísticas de puntualidad y exportación avanzada para nómina</div></div>
 					</div>
-
-					<div class="cta"><button class="btn btn-primary">Elegir Pro</button></div>
+					<div class="cta">
+					<a class="btn btn-primary block w-full text-center py-4 rounded-xl font-bold transition-all transform hover:scale-105 bg-gray-100 text-gray-900 hover:bg-gray-200" href="/">Elegir Pro</a>
+					<!-- <div class="cta"><button class="btn btn-primary">Elegir Pro</button></div> -->
+				</div>
 				</div>
 
 				<!-- Enterprise -->
-				<div class="card bg-gray-400">
-					<div class="title">Plan Enterprise</div>
-					<div class="subtitle">"Corporativo"</div>
-					<div class="price">$0</div>
-					<div class="currency">USD / mes</div>
+				<div class="card bg-gray-400 relativ rounded-2xl shadow-xl p-8 transition-all duration-300 hover:shadow-2xl hover:scale-105">
+					<div class="title ">Plan Enterprise</div>
+					<div class="subtitle font-bold">"Corporativo"</div>
+					<div class="price">Negociable</div>
+					<div class="currency font-bold">USD / mes</div>
 
-					<div class="features">
-						<div class="feature"><div class="check">✓</div><div>Para empresas con múltiples sucursales o alta rotación</div></div>
-						<div class="feature"><div class="check">✓</div><div>+50 empleados (Precio negociado o volumen)</div></div>
-						<div class="feature"><div class="check">✓</div><div>Todo incluido + Soporte prioritario, API para conectar con su software de nómina actual</div></div>
-						<div class="feature"><div class="check">✓</div><div>Almacenamiento extendido de fotos/evidencias (Aqui debemos trabajar en estas cosas)</div></div>
-					</div>
-
-					<div class="cta"><button class="btn btn-outline">Elegir Enterprise</button></div>
+					<div class="features ">
+						<div class="feature items-center"><div class="check">✓</div><div>Para empresas con múltiples sucursales o alta rotación</div></div>
+						<div class="feature items-center"><div class="check">✓</div><div>+50 empleados (Precio negociado o volumen)</div></div>
+						<div class="feature items-center"><div class="check">✓</div><div>Todo incluido + Soporte prioritario, API para conectar con su software de nómina actual</div></div>
+						<div class="feature items-center"><div class="check">✓</div><div>Almacenamiento extendido de fotos/evidencias (Aqui debemos trabajar en estas cosas)</div></div>
+					</div><div class="cta">
+					<a class=" btn btn-outline block w-full text-center py-4 rounded-xl font-bold transition-all transform hover:scale-105 bg-gray-100 text-gray-900 hover:bg-gray-200" href="/">Elegir Enterprise</a>
+					<!-- <div class="cta"><button class="btn btn-outline">Elegir Enterprise</button></div> -->
+				</div>
 				</div>
 			</div>
 		</div>
