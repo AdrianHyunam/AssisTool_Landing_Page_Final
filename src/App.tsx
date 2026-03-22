@@ -27,7 +27,7 @@ import {
       </div>
       <div className="max-w-200 mx-auto p-3">
           <h1 className="text-center text-2xl font-Raleway font-bold px-2 relative z-10 ">
-              Sistema Registro Asistencia
+              Sistema para el Registro de Asistencias
           </h1>
           <p className="text-justify text-xl mt-6 px-4 font-Raleway">
               Es una plataforma tecnológica diseñada para controlar, gestionar y almacenar la asistencia de personas (empleados, estudiantes o participantes) de manera automatizada, eliminando los procesos manuales en papel.
